@@ -1,73 +1,43 @@
-function Tea() {
-  this.type = [];
-  this.style = [];
-  this.flavor = [];
+function Pizza() {
+  this.toppings = [];
+  this.size = [];
 }
 
-Tea.prototype.getTea = function(tea) {
-  for (var i = 0; i < database.length; i++) {
-    for (var j = 0; j < tea.type.length; j++) {
-      console.log(tea.type[j]);
-      console.log(database[i].type);
-
-      if (tea.type[j] === database[i].type) {
-        database[i].rank += 10;
-        console.log(database[i].name + " = " + database[i].rank);
-      };
-      if (tea.style[j] === database[i].style) {
-        database[i].rank += 10;
-        console.log(database[i].name + " = " + database[i].rank);
-      };
-      if (tea.flavor[j] === database[i].flavor) {
-        database[i].rank += 10;
-        console.log(database[i].name + " = " + database[i].rank);
-      };
-    };
+var price = 0;
+Pizza.prototype.getPrice = function(pizza, size) {
+  // console.log("toppings length = " + pizza.toppings.length);
+  // console.log("size = " + size);
+  // debugger;
+  if (size === 1) {
+    price = 10;
+    // console.log("The size was 1 so the price is $10: " + price);
+  } else if (size === 2) {
+    price = 14;
+    // console.log("The size was 2 so the price is $14: " + price);
+  } else if (size === 3) {
+    price = 18;
+    // console.log("The size was 3 so the price is $18: " + price);
+  } else if (size === 4) {
+    price = 22;
+    // console.log("The size was 4 so the price is $22: " + price);
   };
-  // console.log("Earl Grey Rank: " + database[0].rank);
-  // console.log("Gunpowder Green Rank: " + database[1].rank);
-  // console.log("Rose Hip Rank: " + database[2].rank);
+  // console.log(price);
+  price += pizza.toppings.length;
+  // console.log(price);
 };
-
-var database = [
-    { name: 'Earl Grey',
-      type: 'black',
-      style: 'energy',
-      flavor: 'none',
-      rank:  0
-    },
-    { name: 'Gunpowder Green',
-      type: 'green',
-      style: 'light',
-      flavor: 'ginger',
-      rank:  0
-    },
-    { name: 'Rose Hips',
-      type: 'herbal',
-      style: 'light',
-      flavor: 'floral',
-      rank:  0
-    }
-];
-
 
 $(document).ready(function() {
   $("form#selector").submit(function(event) {
     event.preventDefault();
-    var tea = new Tea();
-    $("input:checkbox[name=type]:checked").each(function() {
-      tea.type.push($(this).val());
+    var pizza = new Pizza();
+    $("input:checkbox[name=topping]:checked").each(function() {
+      pizza.toppings.push($(this).val());
       });
-    $("input:checkbox[name=style]:checked").each(function() {
-      tea.style.push($(this).val());
-      });
-    $("input:checkbox[name=flavor]:checked").each(function() {
-      tea.flavor.push($(this).val());
-      });
-    tea.getTea(tea);
-
+    var size = parseInt($("#size option:selected").val());
+    console.log("The size was collected and it is: " + size);
+    pizza.getPrice(pizza, size);
     $("#result").show();
-    $(".result").append( "Your tea type requests: ");
-
+    $(".result").empty().append( "Your pizza will cost $" + price + ".");
+    price = 0;
   });
 });

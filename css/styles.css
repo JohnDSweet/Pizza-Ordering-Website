@@ -1,9 +1,9 @@
 #titleText {
   background-color: coral;
 }
-.result {
-
-}
 #result {
     display: none;
+}
+#size {
+  width: 25%;
 }

@@ -6,53 +6,54 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Tea Selector</title>
+    <title>Pizza Ordering Website</title>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
         <div class="jumbotron" id="titleText">
-          <h1>Tea Selector</h1>
+          <h1>Order your pizza</h1>
         </div>
         <form id="selector">
+          <p>Pick your toppings</p>
           <div class="row">
             <div class="col-md-4">
               <div id="type">
                 <div class="form-group">
-                  <input type="checkbox" name="type" value="black"> Black<br>
-                  <input type="checkbox" name="type" value="green"> Green<br>
-                  <input type="checkbox" name="type" value="herbal"> Herbal<br>
+                  <input type="checkbox" name="topping" value="pepperoni"> Pepperoni<br>
+                  <input type="checkbox" name="topping" value="sausage"> Sausage<br>
+                  <input type="checkbox" name="topping" value="bacon"> Bacon<br>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div id="style">
                 <div class="form-group">
-                  <input type="checkbox" name="style" value="light"> Light<br>
-                  <input type="checkbox" name="style" value="earthy"> Earthy<br>
-                  <input type="checkbox" name="style" value="energy"> Energizing<br>
+                  <input type="checkbox" name="topping" value="greenPepper"> Green Peppers<br>
+                  <input type="checkbox" name="topping" value="blackOlive"> Black Olives<br>
+                  <input type="checkbox" name="topping" value="Onion"> Onions<br>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div id="flavor">
                 <div class="form-group">
-                  <input type="checkbox" name="flavor" value="ginger"> Ginger<br>
-                  <input type="checkbox" name="flavor" value="floral"> Floral<br>
-                  <input type="checkbox" name="flavor" value="vanilla"> Vanilla<br>
+                  <input type="checkbox" name="topping" value="pineapple"> Pineapple<br>
+                  <input type="checkbox" name="topping" value="ham"> Canadian Bacon<br>
+                  <input type="checkbox" name="topping" value="anchovies"> Anchovies<br>
                 </div>
               </div>
             </div>
-                 <!-- <p>What about Size???</p>
-                 <select class="form-control" id="size">
-                   <option value="1">Small</option>
-                   <option value="2">Medium</option>
-                   <option value="3">Large</option>
-                   <option value="4">Extra Large</option>
-                 </select> -->
-             <button type="submit" class="btn btn-info">Select my tea</button>
-           </div>
-        </form>
+          </div>
+          <p>Pick your size</p>
+          <select class="form-control" id="size">
+            <option value="1">Small</option>
+            <option value="2">Medium</option>
+            <option value="3">Large</option>
+            <option value="4">Extra Large</option>
+          </select><br><br>
+          <button type="submit" class="btn btn-info">Order your pizza</button>
+        </form><br>
         <div id="result">
           <p> <span class="result"></span></p>
         </div>
