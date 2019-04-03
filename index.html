@@ -12,10 +12,10 @@
     <div class="container">
       <div class="jumbotron">
         <div class="jumbotron" id="titleText">
-          <h1>Order your pizza</h1>
+          <h1>Customize your pizza and place your order.</h1>
         </div>
         <form id="selector">
-          <p>Pick your toppings</p>
+          <p>Pick your toppings ($1 each)</p>
           <div class="row">
             <div class="col-md-4">
               <div id="type">
@@ -31,7 +31,7 @@
                 <div class="form-group">
                   <input type="checkbox" name="topping" value="greenPepper"> Green Peppers<br>
                   <input type="checkbox" name="topping" value="blackOlive"> Black Olives<br>
-                  <input type="checkbox" name="topping" value="Onion"> Onions<br>
+                  <input type="checkbox" name="topping" value="onion"> Onions<br>
                 </div>
               </div>
             </div>
@@ -45,18 +45,30 @@
               </div>
             </div>
           </div>
-          <p>Pick your size</p>
-          <select class="form-control" id="size">
-            <option value="1">Small</option>
-            <option value="2">Medium</option>
-            <option value="3">Large</option>
-            <option value="4">Extra Large</option>
-          </select><br><br>
-          <button type="submit" class="btn btn-info">Order your pizza</button>
-        </form><br>
-        <div id="result">
-          <p> <span class="result"></span></p>
-        </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p>Pick your size</p>
+              <select class="form-control" id="size">
+                <option value="small">Small ($10)</option>
+                <option value="medium">Medium ($14)</option>
+                <option value="large">Large ($18)</option>
+                <option value="extra large">Extra Large ($22)</option>
+              </select><br><br>
+              <button type="submit" class="btn btn-info"> <span id="button1"> Preview your pizza</span></button>
+              <div id="result">
+                <br>
+                <p> <span class="result"></span></p>
+                <input id="reset" type="reset" class="btn btn-warning" value="Confirm your order" onclick="resetFunction()">
+              </div>
+            </div>
+            <div class="col-md-6"><br>
+              <h3>Pizzas being made:</h3>
+              <p>Click a pizza to cancel the order.</p>
+              <ul id="orders">
+              </ul>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </body>

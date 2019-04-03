@@ -5,25 +5,37 @@ function Pizza() {
 
 var price = 0;
 Pizza.prototype.getPrice = function(pizza, size) {
-  // console.log("toppings length = " + pizza.toppings.length);
-  // console.log("size = " + size);
-  // debugger;
-  if (size === 1) {
+  if (size === "small") {
     price = 10;
-    // console.log("The size was 1 so the price is $10: " + price);
-  } else if (size === 2) {
+  } else if (size === "Medium") {
     price = 14;
-    // console.log("The size was 2 so the price is $14: " + price);
-  } else if (size === 3) {
+  } else if (size === "large") {
     price = 18;
-    // console.log("The size was 3 so the price is $18: " + price);
-  } else if (size === 4) {
+  } else if (size === "extra large") {
     price = 22;
-    // console.log("The size was 4 so the price is $22: " + price);
   };
-  // console.log(price);
   price += pizza.toppings.length;
-  // console.log(price);
+};
+
+var pizzaToppings = "";
+function pizzaName(pizza) {
+  for (var i = 0; i < pizza.toppings.length; i++) {
+    pizzaToppings += ", " + pizza.toppings[i];
+  };
+};
+
+function resetFunction(pizza) {
+  console.log("This is working");
+  var x = document.getElementById("result");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  $("#button1").empty().append("Preview your pizza");
+  pizza.toppings = [];
+  pizza.size = "";
+  pizzaToppings = "";
 };
 
 $(document).ready(function() {
@@ -33,11 +45,25 @@ $(document).ready(function() {
     $("input:checkbox[name=topping]:checked").each(function() {
       pizza.toppings.push($(this).val());
       });
-    var size = parseInt($("#size option:selected").val());
-    console.log("The size was collected and it is: " + size);
+    var size = $("#size option:selected").val();
     pizza.getPrice(pizza, size);
     $("#result").show();
-    $(".result").empty().append( "Your pizza will cost $" + price + ".");
+    $(".result").empty().append("Your pizza will cost $" + price + ".");
+    $("#button1").empty().append("Revise your order");
+    $("#reset").removeClass("hidden");
+
+    document.getElementById("reset").onclick = function() {
+      pizzaName(pizza);
+      $("#orders").append("<li>One " + size + " pizza with cheese" + pizzaToppings + ".</li>");
+      resetFunction(pizza);
+    };
+
+    $("#orders").click(function() {
+      $("ul#orders").children("li").first().click(function() {
+        $(this).remove();
+      });
+    });
+
     price = 0;
   });
 });
