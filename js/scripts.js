@@ -7,7 +7,7 @@ var price = 0;
 Pizza.prototype.getPrice = function(pizza, size) {
   if (size === "small") {
     price = 10;
-  } else if (size === "Medium") {
+  } else if (size === "medium") {
     price = 14;
   } else if (size === "large") {
     price = 18;
