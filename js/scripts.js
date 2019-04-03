@@ -15,7 +15,7 @@ Pizza.prototype.getPrice = function(pizza, size) {
     price = 22;
   };
   price += pizza.toppings.length;
-};
+};  
 
 var pizzaToppings = "";
 function pizzaName(pizza) {
