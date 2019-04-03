@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pizza Ordering Website</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <div class="jumbotron" id="titleText">
+          <h1>Customize your pizza and place your order.</h1>
+        </div>
+        <form id="selector">
+          <p>Pick your toppings ($1 each)</p>
+          <div class="row">
+            <div class="col-md-4">
+              <div id="type">
+                <div class="form-group">
+                  <input type="checkbox" name="topping" value="pepperoni"> Pepperoni<br>
+                  <input type="checkbox" name="topping" value="sausage"> Sausage<br>
+                  <input type="checkbox" name="topping" value="bacon"> Bacon<br>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="style">
+                <div class="form-group">
+                  <input type="checkbox" name="topping" value="greenPepper"> Green Peppers<br>
+                  <input type="checkbox" name="topping" value="blackOlive"> Black Olives<br>
+                  <input type="checkbox" name="topping" value="onion"> Onions<br>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="flavor">
+                <div class="form-group">
+                  <input type="checkbox" name="topping" value="pineapple"> Pineapple<br>
+                  <input type="checkbox" name="topping" value="ham"> Canadian Bacon<br>
+                  <input type="checkbox" name="topping" value="anchovies"> Anchovies<br>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p>Pick your size</p>
+              <select class="form-control" id="size">
+                <option value="small">Small ($10)</option>
+                <option value="medium">Medium ($14)</option>
+                <option value="large">Large ($18)</option>
+                <option value="extra large">Extra Large ($22)</option>
+              </select><br><br>
+              <button type="submit" class="btn btn-info"> <span id="button1"> Preview your pizza</span></button>
+              <div id="result">
+                <br>
+                <p> <span class="result"></span></p>
+                <input id="reset" type="reset" class="btn btn-warning" value="Confirm your order" onclick="resetFunction()">
+              </div>
+            </div>
+            <div class="col-md-6"><br>
+              <h3>Pizzas being made:</h3>
+              <p>Click a pizza to cancel the order.</p>
+              <ul id="orders">
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

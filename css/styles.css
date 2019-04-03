@@ -1,0 +1,12 @@
+#titleText {
+  background-color: coral;
+}
+#result {
+    display: none;
+}
+#size {
+  width: 25%;
+}
+.hidden {
+  display: none;
+}
